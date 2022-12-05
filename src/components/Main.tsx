@@ -16,7 +16,7 @@ const Main = () => {
               return (
                 <Draggable key={id} draggableId={id} index={index}>
                    {(provided) => (
-                      <li key={id} >
+                      <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
                         <img src={src} alt={name} /><span>{name}</span>
                       </li>
                    )}
