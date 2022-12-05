@@ -1,20 +1,35 @@
-import React from 'react'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import React, { useState } from 'react'
+import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd'
 import { listitems } from '../sources/data'
 import '../styles/Main.css'
 
 const Main = () => {
-  console.log(listitems[0].src)
+  const [characters, updateCharacters] = useState
+  <{
+    id: string;
+    name: string;
+    src: string;
+    }[]>(listitems);
+  const items = Array.from(characters);
+  const [reorderedItem] = items.splice(result.source.index, 1);
+  items.splice(result.destination.index, 0, reorderedItem);
+
+updateCharacters(items);
+  
+  const handleOnDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+  }
 
   return (
     <div className='Main'>
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId='characters'>
         {(provided) => (
           <ul {...provided.droppableProps} ref={provided.innerRef}>
-            {listitems.map(({id, name, src}, index) => {
+            {characters.map(({id, name, src}, index) => {
               return (
                 <Draggable key={id} draggableId={id} index={index}>
+                  
                    {(provided) => (
                       <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
                         <img src={src} alt={name} /><span>{name}</span>
@@ -23,6 +38,8 @@ const Main = () => {
                 </Draggable>
               )
             })}
+             ...
+             {provided.placeholder}
           </ul>
         )}
         </Droppable>
