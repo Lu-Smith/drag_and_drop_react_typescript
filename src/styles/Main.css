@@ -9,6 +9,29 @@
     color: white;
 }
 
+.Main li {
+    list-style: none;
+    border: 2px dashed rgb(220, 220, 221);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background-color: rgb(245, 170, 8);
+    border-radius: 20px;
+}
+
 .Main ul img {
-    width: 30px;
+    width: 50px;
+    height: 55px;
+    margin-right: 10px;
+    background-color: rgb(252, 246, 246);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.Main ul span {
+    width: 100px;
+    margin-right: 10px;
+    font-style: italic;
 }
