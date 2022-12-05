@@ -12,37 +12,35 @@ const Main = () => {
     }[]>(listitems);
 
 
-
-  
   const handleOnDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     const items = Array.from(characters);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
     updateCharacters(items);
-    
   }
+
+  console.log(listitems[3].id)
 
   return (
     <div className='Main'>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId='characters'>
         {(provided) => (
-          <ul {...provided.droppableProps} ref={provided.innerRef}>
+          <ul className='characters' {...provided.droppableProps} ref={provided.innerRef}>
             {characters.map(({id, name, src}, index) => {
               return (
                 <Draggable key={id} draggableId={id} index={index}>
-                  
                    {(provided) => (
                       <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
                         <img src={src} alt={name} /><span>{name}</span>
+                       
                       </li>
                    )}
                 </Draggable>
               )
             })}
-             ...
-             {provided.placeholder}
+             ...{provided.placeholder}
           </ul>
         )}
         </Droppable>
