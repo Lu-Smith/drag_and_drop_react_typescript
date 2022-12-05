@@ -10,14 +10,17 @@ const Main = () => {
     name: string;
     src: string;
     }[]>(listitems);
-  const items = Array.from(characters);
-  const [reorderedItem] = items.splice(result.source.index, 1);
-  items.splice(result.destination.index, 0, reorderedItem);
 
-updateCharacters(items);
+
+
   
   const handleOnDragEnd = (result: DropResult) => {
     if (!result.destination) return;
+    const items = Array.from(characters);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    updateCharacters(items);
+    
   }
 
   return (
