@@ -3,6 +3,14 @@ import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautif
 import { listitems } from '../sources/data'
 import '../styles/Main.css'
 
+const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
+  background: isDragging ? 'red' : 'rgb(245, 170, 8)',
+  color: isDragging ? 'black' : 'white',
+
+  ...draggableStyle
+})
+
+
 const Main = () => {
   const [characters, updateCharacters] = useState
   <{
@@ -10,6 +18,7 @@ const Main = () => {
     name: string;
     src: string;
     }[]>(listitems);
+
 
 
   const handleOnDragEnd = (result: DropResult) => {
@@ -20,8 +29,6 @@ const Main = () => {
     updateCharacters(items);
   }
 
-  console.log(listitems[3].id)
-
   return (
     <div className='Main'>
       <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -31,8 +38,8 @@ const Main = () => {
             {characters.map(({id, name, src}, index) => {
               return (
                 <Draggable key={id} draggableId={id} index={index}>
-                   {(provided) => (
-                      <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
+                   {(provided, snapshot) => (
+                      <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}>
                         <img src={src} alt={name} /><span>{name}</span>
                        
                       </li>
@@ -40,7 +47,6 @@ const Main = () => {
                 </Draggable>
               )
             })}
-             ...{provided.placeholder}
           </ul>
         )}
         </Droppable>
