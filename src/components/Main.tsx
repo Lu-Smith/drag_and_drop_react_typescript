@@ -1,4 +1,5 @@
 import React from 'react'
+import { DragDropContext } from 'react-beautiful-dnd'
 import { listitems } from '../sources/data'
 import '../styles/Main.css'
 
@@ -7,15 +8,17 @@ const Main = () => {
 
   return (
     <div className='Main'>
-      <ul>
-        {listitems.map(({id, name, src}) => {
-          return (
-            <li key={id} >
-              <img src={src} alt={name} /><span>{name}</span>
-            </li>
-          )
-        })}
-      </ul>
+      <DragDropContext>
+        <ul>
+          {listitems.map(({id, name, src}) => {
+            return (
+              <li key={id} >
+                <img src={src} alt={name} /><span>{name}</span>
+              </li>
+            )
+          })}
+        </ul>
+      </DragDropContext>
     </div>
   )
 }
