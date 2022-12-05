@@ -1,30 +1,49 @@
+
+
 export const listitems = [
     {
       id: '1',
-      name: 'breakfast'
+      name: 'grumpy',
+      src: '../../public/images/bunny.png'
     },
     {
       id: '2',
-      name: 'coding'
+      name: 'lucky',
+      src: '{Elf}'
     },
     {
       id: '3',
-      name: 'lunch'
+      name: 'unlucky',
+      src: '{Puppy}'
     },
     {
       id: '4',
-      name: 'more coding'
+      name: 'happy',
+      src: '{Elf'
     },
     {
       id: '5',
-      name: 'dinner'
+      name: 'magical',
+      src: '{Little Witch}g'
     },
     {
       id: '6',
-      name: 'C# course'
+      name: 'clever',
+      src: '{Mole}'
     },
     {
       id: '7',
-      name: 'walk the dog'
+      name: 'beautiful',
+      src: '{Zebra}'
+    },
+    {
+      id: '8',
+      name: 'sporty',
+      src: '{Giraffe}'
+    },
+    {
+      id: '9',
+      name: 'busy',
+      src: '{Bee}'
     },
   ]

@@ -8,3 +8,7 @@
     font-family: 'Zen Dots', cursive;
     color: white;
 }
+
+.Main ul img {
+    width: 30px;
+}
