@@ -14,6 +14,11 @@
     margin-left: 5px;
 }
 
+.Footer a:hover, a:focus {
+    color: rgb(245, 63, 8);
+    border-bottom: 2px solid rgb(245, 63, 8);
+}
+
 @media only screen and (max-width: 600px) {
     .Footer {
         font-size: 16px;
